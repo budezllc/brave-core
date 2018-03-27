@@ -1,0 +1,24 @@
+diff --git a/components/content_settings/core/browser/content_settings_registry.cc b/components/content_settings/core/browser/content_settings_registry.cc
+index 1f564bc2bcbcb613328323abdab6b425a50130f4..62aa59568f206ca916c26a3455c0f12c516b404b 100644
+--- a/components/content_settings/core/browser/content_settings_registry.cc
++++ b/components/content_settings/core/browser/content_settings_registry.cc
+@@ -63,8 +63,9 @@ std::set<ContentSetting> ValidSettings(ContentSetting setting1,
+ std::set<ContentSetting> ValidSettings(ContentSetting setting1,
+                                        ContentSetting setting2,
+                                        ContentSetting setting3,
+-                                       ContentSetting setting4) {
+-  ContentSetting settings[] = {setting1, setting2, setting3, setting4};
++                                       ContentSetting setting4,
++                                       ContentSetting setting5) {
++  ContentSetting settings[] = {setting1, setting2, setting3, setting4, setting5};
+   return std::set<ContentSetting>(settings, settings + arraysize(settings));
+ }
+ 
+@@ -152,6 +153,7 @@ void ContentSettingsRegistry::Init() {
+            WhitelistedSchemes(kChromeUIScheme, kChromeDevToolsScheme),
+            ValidSettings(CONTENT_SETTING_ALLOW, CONTENT_SETTING_BLOCK,
+                          CONTENT_SETTING_ASK,
++                         CONTENT_SETTING_BLOCK_THIRD_PARTY,
+                          CONTENT_SETTING_DETECT_IMPORTANT_CONTENT),
+            WebsiteSettingsInfo::TOP_LEVEL_ORIGIN_ONLY_SCOPE,
+            WebsiteSettingsRegistry::DESKTOP,

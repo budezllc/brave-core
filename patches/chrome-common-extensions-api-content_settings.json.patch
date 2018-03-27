@@ -1,0 +1,13 @@
+diff --git a/chrome/common/extensions/api/content_settings.json b/chrome/common/extensions/api/content_settings.json
+index 9c0927abbb6127eae9f4e3143f6d508aa9d81f72..966ac59970f734a7b1a17a8803aefeccd8c18592 100644
+--- a/chrome/common/extensions/api/content_settings.json
++++ b/chrome/common/extensions/api/content_settings.json
+@@ -197,7 +197,7 @@
+       {
+         "id": "PluginsContentSetting",
+         "type": "string",
+-        "enum": ["allow", "block", "detect_important_content"]
++        "enum": ["allow", "block", "block_third_party", "detect_important_content"]
+       },
+       {
+         "id": "PopupsContentSetting",

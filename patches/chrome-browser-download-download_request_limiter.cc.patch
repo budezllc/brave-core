@@ -1,0 +1,12 @@
+diff --git a/chrome/browser/download/download_request_limiter.cc b/chrome/browser/download/download_request_limiter.cc
+index b8ab47febde8457b6705053d9958248355ab4565..1c63b3465e0bc9e30d3f9ea969178c2ef727b4e0 100644
+--- a/chrome/browser/download/download_request_limiter.cc
++++ b/chrome/browser/download/download_request_limiter.cc
+@@ -60,6 +60,7 @@ DownloadRequestLimiter::DownloadStatus GetDownloadStatusFromSetting(
+       return DownloadRequestLimiter::PROMPT_BEFORE_DOWNLOAD;
+     case CONTENT_SETTING_SESSION_ONLY:
+     case CONTENT_SETTING_NUM_SETTINGS:
++    case CONTENT_SETTING_BLOCK_THIRD_PARTY:
+     case CONTENT_SETTING_DETECT_IMPORTANT_CONTENT:
+       NOTREACHED();
+       return DownloadRequestLimiter::PROMPT_BEFORE_DOWNLOAD;

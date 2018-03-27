@@ -1,5 +1,5 @@
 diff --git a/chrome/browser/chrome_content_browser_client.cc b/chrome/browser/chrome_content_browser_client.cc
-index 8d132058b6ee5ec856a183933ffd389816885619..35ff2e225d6196364ba79d086fef0abe527c259f 100644
+index 8d132058b6ee5ec856a183933ffd389816885619..17a5533a397aaf0f2fcf4f355ca9cb73ad12c19e 100644
 --- a/chrome/browser/chrome_content_browser_client.cc
 +++ b/chrome/browser/chrome_content_browser_client.cc
 @@ -713,6 +713,10 @@ void GetGuestViewDefaultContentSettingRules(
@@ -8,7 +8,7 @@ index 8d132058b6ee5ec856a183933ffd389816885619..35ff2e225d6196364ba79d086fef0abe
        std::string(), incognito));
 +  rules->fingerprinting_rules.push_back(ContentSettingPatternSource(
 +      ContentSettingsPattern::Wildcard(), ContentSettingsPattern::Wildcard(),
-+      content_settings::ContentSettingToValue(CONTENT_SETTING_ALLOW),
++      content_settings::ContentSettingToValue(CONTENT_SETTING_BLOCK_THIRD_PARTY),
 +      std::string(), incognito));
  }
  

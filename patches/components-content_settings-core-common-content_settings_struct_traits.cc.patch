@@ -1,8 +1,27 @@
 diff --git a/components/content_settings/core/common/content_settings_struct_traits.cc b/components/content_settings/core/common/content_settings_struct_traits.cc
-index f3426ddeea0df91b395a039fc87d7db04b51e8ba..ac5c3679b605feb1ddca2314b3ac86bd55b7b30d 100644
+index f3426ddeea0df91b395a039fc87d7db04b51e8ba..368f5540fef472daa529defaed55b9864fb601af 100644
 --- a/components/content_settings/core/common/content_settings_struct_traits.cc
 +++ b/components/content_settings/core/common/content_settings_struct_traits.cc
-@@ -100,6 +100,7 @@ bool StructTraits<content_settings::mojom::RendererContentSettingRulesDataView,
+@@ -43,6 +43,8 @@ EnumTraits<content_settings::mojom::ContentSetting, ContentSetting>::ToMojom(
+       return content_settings::mojom::ContentSetting::ASK;
+     case CONTENT_SETTING_SESSION_ONLY:
+       return content_settings::mojom::ContentSetting::SESSION_ONLY;
++    case CONTENT_SETTING_BLOCK_THIRD_PARTY:
++      return content_settings::mojom::ContentSetting::BLOCK_THIRD_PARTY;
+     case CONTENT_SETTING_DETECT_IMPORTANT_CONTENT:
+       return content_settings::mojom::ContentSetting::DETECT_IMPORTANT_CONTENT;
+     case CONTENT_SETTING_NUM_SETTINGS:
+@@ -73,6 +75,9 @@ bool EnumTraits<content_settings::mojom::ContentSetting, ContentSetting>::
+     case content_settings::mojom::ContentSetting::SESSION_ONLY:
+       *out = CONTENT_SETTING_SESSION_ONLY;
+       return true;
++    case content_settings::mojom::ContentSetting::BLOCK_THIRD_PARTY:
++      *out = CONTENT_SETTING_BLOCK_THIRD_PARTY;
++      return true;
+     case content_settings::mojom::ContentSetting::DETECT_IMPORTANT_CONTENT:
+       *out = CONTENT_SETTING_DETECT_IMPORTANT_CONTENT;
+       return true;
+@@ -100,6 +105,7 @@ bool StructTraits<content_settings::mojom::RendererContentSettingRulesDataView,
    return data.ReadImageRules(&out->image_rules) &&
           data.ReadScriptRules(&out->script_rules) &&
           data.ReadAutoplayRules(&out->autoplay_rules) &&

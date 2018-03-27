@@ -1,0 +1,36 @@
+diff --git a/chrome/browser/ui/page_info/page_info_ui.cc b/chrome/browser/ui/page_info/page_info_ui.cc
+index e58ddec20814ecd4524ad48d4e7c2b4525930dc0..4287f86fecf305bead5e0642e75ab1f8cc693711 100644
+--- a/chrome/browser/ui/page_info/page_info_ui.cc
++++ b/chrome/browser/ui/page_info/page_info_ui.cc
+@@ -58,6 +58,7 @@ const int kPermissionButtonTextIDPolicyManaged[] = {
+     IDS_PAGE_INFO_PERMISSION_BLOCKED_BY_POLICY,
+     IDS_PAGE_INFO_PERMISSION_ASK_BY_POLICY,
+     kInvalidResourceID,
++    kInvalidResourceID,
+     kInvalidResourceID};
+ static_assert(arraysize(kPermissionButtonTextIDPolicyManaged) ==
+                   CONTENT_SETTING_NUM_SETTINGS,
+@@ -71,6 +72,7 @@ const int kPermissionButtonTextIDExtensionManaged[] = {
+     IDS_PAGE_INFO_PERMISSION_BLOCKED_BY_EXTENSION,
+     IDS_PAGE_INFO_PERMISSION_ASK_BY_EXTENSION,
+     kInvalidResourceID,
++    kInvalidResourceID,
+     kInvalidResourceID};
+ static_assert(arraysize(kPermissionButtonTextIDExtensionManaged) ==
+                   CONTENT_SETTING_NUM_SETTINGS,
+@@ -85,6 +87,7 @@ const int kPermissionButtonTextIDUserManaged[] = {
+     IDS_PAGE_INFO_BUTTON_TEXT_BLOCKED_BY_USER,
+     IDS_PAGE_INFO_BUTTON_TEXT_ASK_BY_USER,
+     kInvalidResourceID,
++    kInvalidResourceID,
+     IDS_PAGE_INFO_BUTTON_TEXT_DETECT_IMPORTANT_CONTENT_BY_USER};
+ static_assert(arraysize(kPermissionButtonTextIDUserManaged) ==
+                   CONTENT_SETTING_NUM_SETTINGS,
+@@ -98,6 +101,7 @@ const int kPermissionButtonTextIDDefaultSetting[] = {
+     IDS_PAGE_INFO_BUTTON_TEXT_BLOCKED_BY_DEFAULT,
+     IDS_PAGE_INFO_BUTTON_TEXT_ASK_BY_DEFAULT,
+     kInvalidResourceID,
++    kInvalidResourceID,
+     IDS_PAGE_INFO_BUTTON_TEXT_DETECT_IMPORTANT_CONTENT_BY_DEFAULT};
+ static_assert(arraysize(kPermissionButtonTextIDDefaultSetting) ==
+                   CONTENT_SETTING_NUM_SETTINGS,

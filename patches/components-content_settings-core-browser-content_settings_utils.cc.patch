@@ -1,8 +1,24 @@
 diff --git a/components/content_settings/core/browser/content_settings_utils.cc b/components/content_settings/core/browser/content_settings_utils.cc
-index 991543e4c6f23831957909b5e60a143c1dd8f091..e40942011faa75a41c8cfaebad2439a172b48a24 100644
+index 991543e4c6f23831957909b5e60a143c1dd8f091..8ffdd8d5e95a7bc66adcd98bf8771a87e9f39979 100644
 --- a/components/content_settings/core/browser/content_settings_utils.cc
 +++ b/components/content_settings/core/browser/content_settings_utils.cc
-@@ -143,6 +143,10 @@ void GetRendererContentSettingRules(const HostContentSettingsMap* map,
+@@ -29,6 +29,7 @@ const ContentSettingsStringMapping kContentSettingsStringMapping[] = {
+     {CONTENT_SETTING_BLOCK, "block"},
+     {CONTENT_SETTING_ASK, "ask"},
+     {CONTENT_SETTING_SESSION_ONLY, "session_only"},
++    {CONTENT_SETTING_BLOCK_THIRD_PARTY, "block_third_party"},
+     {CONTENT_SETTING_DETECT_IMPORTANT_CONTENT, "detect_important_content"},
+ };
+ static_assert(arraysize(kContentSettingsStringMapping) ==
+@@ -47,6 +48,7 @@ const ContentSetting kContentSettingOrder[] = {
+     CONTENT_SETTING_SESSION_ONLY,
+     CONTENT_SETTING_DETECT_IMPORTANT_CONTENT,
+     CONTENT_SETTING_ASK,
++    CONTENT_SETTING_BLOCK_THIRD_PARTY,
+     CONTENT_SETTING_BLOCK
+ };
+ 
+@@ -143,6 +145,10 @@ void GetRendererContentSettingRules(const HostContentSettingsMap* map,
    map->GetSettingsForOneType(CONTENT_SETTINGS_TYPE_CLIENT_HINTS,
                               ResourceIdentifier(),
                               &(rules->client_hints_rules));
