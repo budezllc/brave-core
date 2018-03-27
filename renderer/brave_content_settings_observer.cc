@@ -50,14 +50,20 @@ bool BraveContentSettingsObserver::AllowFingerprinting(
     bool enabled_per_settings) {
   if (!enabled_per_settings)
     return false;
+
   blink::WebLocalFrame* frame = render_frame()->GetWebFrame();
-  bool allow = true;
+  const GURL primary_url(
+      url::Origin(frame->Top()->GetSecurityOrigin()).GetURL());
   const GURL secondary_url(
       url::Origin(frame->GetDocument().GetSecurityOrigin()).GetURL());
+
+  bool allow = primary_url == secondary_url; // blocking third party by default
   if (content_setting_rules_) {
     ContentSetting setting = GetContentSettingFromRules(
         content_setting_rules_->fingerprinting_rules, frame, secondary_url);
-    allow = setting != CONTENT_SETTING_BLOCK;
+    if (setting == CONTENT_SETTING_ALLOW || setting == CONTENT_SETTING_BLOCK) {
+      allow = setting != CONTENT_SETTING_BLOCK;
+    }
   }
   allow = allow || IsWhitelistedForContentSettings();
 
